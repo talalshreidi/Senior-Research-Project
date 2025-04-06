@@ -1,0 +1,20 @@
+.appContainer {
+    max-width: 90%; /* Use percentage for max-width */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.appTitle {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1rem; /* Add spacing below title */
+}
+
+@media (max-width: 576px) { /* Adjust breakpoint as needed */
+    .appContainer {
+        padding: 15px; /* Smaller padding on smaller screens */
+    }
+}

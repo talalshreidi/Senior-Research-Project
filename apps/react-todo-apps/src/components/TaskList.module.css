@@ -1,0 +1,170 @@
+.taskList {
+    list-style: none;
+    padding: 0;
+    margin: 20px auto;
+    max-width: 600px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    overflow-x: auto;
+}
+
+
+.taskItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    background-color: #ffffff;
+
+    &:hover {
+        background-color: #f1f3f5;
+        transform: scale(1.02);
+    }
+}
+
+.taskItem.high-priority {
+    background-color: #f8d7da;
+    border-left: 5px solid #dc3545;
+}
+
+.taskItem.medium-priority {
+    background-color: #fff3cd;
+    border-left: 5px solid #ffc107;
+}
+
+.taskItem.low-priority {
+    background-color: #d4edda;
+    border-left: 5px solid #28a745;
+}
+
+
+.taskItem:last-child {
+    border-bottom: none;
+}
+
+
+.taskContent {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-grow: 1; /* Allow task content to grow and take up available space */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+}
+
+.taskContent > span {
+    display: inline-block; /* Or block if you want it to take full width */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ellipsis (...) for overflow */
+    white-space: nowrap;      /* Prevent text from wrapping */
+    max-width: 60%;
+    padding: 2px;
+}
+
+.taskCheckbox {
+    margin-right: 15px;
+    width: 18px;
+    height: 18px;
+    accent-color: #0d6efd;
+}
+
+
+.taskInput {
+    flex-grow: 1; /* Allow input to grow */
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    font-size: 16px;
+    color: #495057;
+    transition: border-color 0.2s ease;
+    max-width: calc(100% - 100px);
+    min-width: 100px;
+
+
+    &:focus {
+        border-color: #0d6efd;
+        outline: none;
+    }
+}
+.editInputWrapper {
+    display: flex;
+    gap: 10px;
+    align-items: center; /* Vertically center items */
+}
+
+.saveButton, .cancelButton {
+    white-space: nowrap; /* Prevent buttons from wrapping */
+    padding: 5px;
+
+}
+
+.taskActions {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0; /* Prevent buttons from shrinking */
+    align-self: flex-start;  /* Align to the top on smaller screens */
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+
+.editButton,
+.deleteButton {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+
+.editButton {
+    background-color: #ffc107;
+    color: white;
+
+    &:hover {
+        background-color: #e0a800;
+    }
+}
+
+
+.deleteButton {
+    background-color: #dc3545;
+    color: white;
+
+    &:hover {
+        background-color: #bd2130;
+    }
+}
+
+
+.completed {
+    text-decoration: line-through;
+    color: #6c757d;
+    font-style: italic;
+}
+
+@media (max-width: 576px) { /* Example breakpoint, adjust as needed */
+    .taskItem {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: flex-start; /* Align to the left */
+    }
+    .taskActions {
+
+        margin-top: 10px; /* Add margin to separate buttons when stacked */
+    }
+    .taskInput {
+        max-width: calc(100% - 20px); /* Adjust input width */
+    }
+    .taskContent {
+        max-width: calc(100% - 20px); /* Adjust input width */
+    }
+}
