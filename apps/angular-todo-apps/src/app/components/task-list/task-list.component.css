@@ -1,0 +1,187 @@
+/* Main container for the task list with a gradient background and shadow */
+.taskList {
+  list-style: none;
+  padding: 0;
+  margin: 20px auto;
+  max-width: 600px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  overflow-x: auto;
+}
+
+/* Individual task item styling with flex layout */
+.taskItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  background-color: #ffffff;
+}
+
+/* Hover effect for task items */
+.taskItem:hover {
+  background-color: #f1f3f5;
+  transform: scale(1.02);
+}
+
+/* Priority-based styling for tasks */
+.taskItem.high-priority {
+  background-color: #f8d7da;
+  border-left: 5px solid #dc3545;
+}
+
+.taskItem.medium-priority {
+  background-color: #fff3cd;
+  border-left: 5px solid #ffc107;
+}
+
+.taskItem.low-priority {
+  background-color: #d4edda;
+  border-left: 5px solid #28a745;
+}
+
+/* Remove border from last task item */
+.taskItem:last-child {
+  border-bottom: none;
+}
+
+/* Task content container with text overflow handling */
+.taskContent {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Text content styling within task */
+.taskContent > span {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 60%;
+  padding: 2px;
+}
+
+/* Checkbox styling with custom accent color */
+.taskCheckbox {
+  margin-right: 15px;
+  width: 18px;
+  height: 18px;
+  accent-color: #0d6efd;
+}
+
+/* Input field styling for editing tasks */
+.taskInput {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  font-size: 16px;
+  color: #495057;
+  transition: border-color 0.2s ease;
+  max-width: calc(100% - 100px);
+  min-width: 100px;
+}
+
+/* Focus state for input field */
+.taskInput:focus {
+  border-color: #0d6efd;
+  outline: none;
+}
+
+/* Container for edit mode inputs and buttons */
+.editInputWrapper {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Basic button styling for save/cancel */
+.saveButton, .cancelButton {
+  white-space: nowrap;
+  padding: 5px;
+}
+
+/* Action buttons container with fade effect */
+.taskActions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+  align-self: flex-start;
+  margin-top: 10px;
+  flex-wrap: wrap;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+
+
+/* Common styles for edit and delete buttons */
+.editButton,
+.deleteButton {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+/* Edit button specific styling */
+.editButton {
+  background-color: #2463e6;
+  color: white;
+}
+
+/* Edit button hover state */
+.editButton:hover {
+  background-color: #588df4;
+}
+
+/* Delete button specific styling */
+.deleteButton {
+  background-color: #dc3545;
+  color: white;
+}
+
+/* Delete button hover state */
+.deleteButton:hover {
+  background-color: #bd2130;
+}
+
+/* Styling for completed tasks */
+.completed {
+  text-decoration: line-through;
+  color: #6c757d;
+  font-style: italic;
+}
+
+/* Mobile responsive layout adjustments */
+@media (max-width: 576px) {
+  .taskItem {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .taskActions {
+    margin-top: 10px;
+    opacity: 1;
+  }
+
+  .taskInput {
+    max-width: calc(100% - 20px);
+  }
+
+  .taskContent {
+    max-width: calc(100% - 20px);
+  }
+}

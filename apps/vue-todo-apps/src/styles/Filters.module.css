@@ -1,0 +1,73 @@
+/* Main container for filter buttons */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* Individual filter button styling */
+.filters button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #f0f0f0;
+  color: #333;
+  flex: 1 0 30%;
+}
+
+.filters .active {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Hover effect for buttons */
+.filters button:hover {
+  background-color: #ddd;
+}
+
+/* Styling for active/selected filter button */
+.active {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Tablet and smaller laptop screens */
+@media (max-width: 768px) {
+  .filters {
+    justify-content: space-around;
+  }
+
+  .filters button {
+    font-size: 0.9rem;
+  }
+}
+
+/* Large mobile devices */
+@media (max-width: 425px) {
+  .filters button {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    flex: 1 0 45%;
+  }
+}
+
+/* Medium mobile devices */
+@media (max-width: 375px) {
+  .filters button {
+    padding: 5px 8px;
+    font-size: 0.7rem;
+    flex: 1 0 48%;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 320px) {
+  .filters button {
+    padding: 4px 6px;
+    font-size: 0.6rem;
+    flex: 1 0 98%;
+  }
+}

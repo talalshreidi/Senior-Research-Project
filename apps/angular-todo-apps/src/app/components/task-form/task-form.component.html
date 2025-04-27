@@ -1,0 +1,51 @@
+<!-- Task form with submission handler -->
+<form (ngSubmit)="handleSubmit()" class="taskForm">
+  <!-- Error message displayed when validation fails -->
+  <div *ngIf="error" class="errorMessage">{{ error }}</div>
+
+  <!-- Task description input field -->
+  <div class="formGroup">
+    <label for="taskText" class="label">Task Description:</label>
+    <input
+      type="text"
+      id="taskText"
+      [(ngModel)]="text"
+      name="text"
+      placeholder="Enter task description"
+      class="inputField"
+      required
+    />
+  </div>
+
+  <!-- Priority selection dropdown -->
+  <div class="formGroup">
+    <label for="taskPriority" class="label">Priority:</label>
+    <select
+      id="taskPriority"
+      [(ngModel)]="priority"
+      name="priority"
+      class="selectField"
+    >
+      <option value="High">High</option>
+      <option value="Medium">Medium</option>
+      <option value="Low">Low</option>
+    </select>
+  </div>
+
+  <!-- Due date input field -->
+  <div class="formGroup">
+    <label for="taskDueDate" class="label">Due Date:</label>
+    <input
+      type="date"
+      id="taskDueDate"
+      [(ngModel)]="dueDate"
+      name="dueDate"
+      class="dateField"
+    />
+  </div>
+
+  <!-- Submit button to add the task -->
+  <button type="submit" class="submitButton">
+    Add Task
+  </button>
+</form>

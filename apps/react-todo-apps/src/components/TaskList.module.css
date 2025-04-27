@@ -127,11 +127,11 @@
 
 
 .editButton {
-    background-color: #ffc107;
+    background-color: #2463e6;
     color: white;
 
     &:hover {
-        background-color: #e0a800;
+        background-color: #588df4;
     }
 }
 

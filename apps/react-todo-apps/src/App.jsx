@@ -75,7 +75,8 @@ function App() {
         <>
             <div className={styles.appContainer}>  {/* Use styles.appContainer */}
                 <h1 className={styles.appTitle}>Senior Research To-Do List</h1> {/* Use styles.appTitle */}
-                <h2 className={styles.appTitle}>By Talal Shreidi</h2>
+                <h2 className={styles.appTitle} style={{color: 'blue', textDecoration: 'underline'}}>React Version</h2>
+                <h3 className={styles.appTitle}>By Talal Shreidi</h3>
                 <TaskForm onAddTask={addTask}/>
                 <Filters onFilterChange={setFilter} filter={filter}/>
                 <TaskList

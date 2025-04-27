@@ -1,0 +1,27 @@
+<div class="appContainer">
+  <h1 class="appTitle">Senior Research To-Do List</h1>
+    <h2 class="appTitle" id="version-app">Angular Version</h2>
+  <h3 class="appTitle">By Talal Shreidi</h3>
+
+  <!-- Component for adding new tasks through a form interface -->
+
+  <app-task-form (addTask)="onAddTask($event)"></app-task-form>
+
+  <app-filters [filter]="filter" (filterChange)="onFilterChange($event)"></app-filters>
+
+ <!-- Component for displaying tasks -->
+
+  <app-task-list
+    [tasks]="getFilteredTasks()"
+    (deleteTask)="onDeleteTask($event)"
+    (toggleTaskCompletion)="onToggleTaskCompletion($event)"
+    (updateTask)="onUpdateTask($event.id, $event.updatedTask)"
+  ></app-task-list>
+
+ <!-- Footer -->
+  <footer style="text-align: center; padding: 1rem; background: #f1f1f1; margin-top: 1rem;">
+    © {{ getCurrentYear() }} <span style="font-weight: bold;">CSC 450 Senior Research</span>. All Rights Reserved.
+  </footer>
+</div>
+
+<router-outlet />

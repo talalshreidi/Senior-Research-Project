@@ -13,6 +13,7 @@
     margin-bottom: 1rem; /* Add spacing below title */
 }
 
+
 @media (max-width: 576px) { /* Adjust breakpoint as needed */
     .appContainer {
         padding: 15px; /* Smaller padding on smaller screens */

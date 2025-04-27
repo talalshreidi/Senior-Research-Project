@@ -1,0 +1,91 @@
+<!-- Task list container -->
+<ul class="taskList">
+  <!-- Iterates through each task and handles hover states -->
+  <li
+    *ngFor="let task of tasks"
+    [class]="getTaskClassName(task)"
+    (mouseenter)="hoveredTaskId = task.id"
+    (mouseleave)="hoveredTaskId = null"
+  >
+    <!-- Task content wrapper with checkbox and text -->
+    <div class="taskContent">
+      <!-- Checkbox for marking task complete -->
+      <input
+        type="checkbox"
+        [checked]="task.completed"
+        (change)="toggleTaskCompletion.emit(task.id)"
+        class="taskCheckbox"
+      />
+
+      <!-- Edit mode container with input field and action buttons -->
+      <ng-container *ngIf="editTaskId === task.id; else displayMode">
+        <div class="editInputWrapper">
+          <!-- Input field for editing task text -->
+          <input
+            type="text"
+            [(ngModel)]="editTaskText"
+            (blur)="handleEditSave(task.id)"
+            (keydown.enter)="handleEditSave(task.id)"
+            (keydown.escape)="handleCancelEdit()"
+            class="taskInput"
+            #editInput
+            autofocus
+          />
+          <!-- Save button for edit mode -->
+          <button
+            (click)="handleEditSave(task.id)"
+            class="saveButton"
+          >
+            Save
+          </button>
+          <!-- Cancel button for edit mode -->
+          <button
+            (click)="handleCancelEdit()"
+            class="cancelButton"
+          >
+            Cancel
+          </button>
+        </div>
+      </ng-container>
+
+      <!-- Display mode showing task text -->
+      <ng-template #displayMode>
+        <span
+          (dblclick)="handleEditClick(task)"
+          title="Double-click to edit"
+          class="taskText"
+        >
+          {{ task.text }}
+        </span>
+      </ng-template>
+
+      <!-- Due date display with overdue highlighting -->
+      <span *ngIf="task.dueDate" class="dueDate">
+        Due: <strong [style.color]="formatDate(task.dueDate).isOverdue ? 'red' : 'inherit'">
+          {{ formatDate(task.dueDate).formattedDate }}
+        </strong>
+      </span>
+    </div>
+
+    <!-- Action buttons that appear on hover -->
+    <div
+      class="taskActions"
+      [class.actionsVisible]="hoveredTaskId === task.id"
+    >
+      <!-- Edit task button -->
+      <button
+        (click)="handleEditClick(task)"
+        class="editButton"
+      >
+        Edit
+      </button>
+      <!-- Delete task button -->
+      <button
+        (click)="deleteTask.emit(task.id)"
+        class="deleteButton"
+      >
+        Delete
+      </button>
+    </div>
+  </li>
+</ul>

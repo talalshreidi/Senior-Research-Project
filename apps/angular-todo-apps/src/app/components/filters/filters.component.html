@@ -1,0 +1,44 @@
+<div class="filters">
+  <button
+    (click)="onFilterClick('all')"
+    [class.active]="isActive('all')"
+  >
+    All
+  </button>
+  <button
+    (click)="onFilterClick('active')"
+    [class.active]="isActive('active')"
+  >
+    Active
+  </button>
+  <button
+    (click)="onFilterClick('completed')"
+    [class.active]="isActive('completed')"
+  >
+    Completed
+  </button>
+  <button
+    (click)="onFilterClick('highPriority')"
+    [class.active]="isActive('highPriority')"
+  >
+    High Priority
+  </button>
+  <button
+    (click)="onFilterClick('mediumPriority')"
+    [class.active]="isActive('mediumPriority')"
+  >
+    Medium Priority
+  </button>
+  <button
+    (click)="onFilterClick('lowPriority')"
+    [class.active]="isActive('lowPriority')"
+  >
+    Low Priority
+  </button>
+  <button
+    (click)="onFilterClick('overdue')"
+    [class.active]="isActive('overdue')"
+  >
+    Overdue
+  </button>
+</div>
